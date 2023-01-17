@@ -14,5 +14,20 @@ justify-content: center;
 gap: 1rem;
 `
 
-export const Button = styled.button`
+export const ViewMore = styled.button`
+display: block;
+margin: 0 auto;
+margin-top: 1rem;
+width: 30%;
+`
+
+export const Message = styled.p`
+text-align: center;
+margin: 0 auto;
+margin-top: 1rem;
+width: max-content;
+border-radius: .2rem;
+padding: .5rem;
+font-size: .8rem;
+background: var(--secondary-color);
 `

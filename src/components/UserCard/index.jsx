@@ -6,7 +6,7 @@ import { Actions, Avatar, Info, UserContainer, Title, ActionButton } from './sty
 export default function UserCard({ user, onClickEdit }) {
   const queryClient = useQueryClient()
 
-  const { mutate } = useMutation(
+  const { mutate, isLoading } = useMutation(
     () => api.deleteUser(user.id),
     {
       onSuccess: () => queryClient.invalidateQueries('users')
@@ -20,7 +20,7 @@ export default function UserCard({ user, onClickEdit }) {
         <Title className='nowrap'>{user.name}</Title>
         <Actions>
           <ActionButton btnText="Editar" handleClick={onClickEdit} />
-          <ActionButton btnText="Apagar" handleClick={() => mutate()} />
+          <ActionButton btnText={isLoading ? "Apagando..." : "Apagar"} handleClick={() => mutate()} />
         </Actions>
       </Info>
     </UserContainer>
