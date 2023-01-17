@@ -1,19 +1,17 @@
 import Button from '../../Button'
+import { Actions, Avatar, Info, UserContainer, Title, ActionButton } from './styles'
 
 export default function UserCard({ user }) {
   return (
-    <div className="c-user">
-      <div>
-        <img src={user.avatar} alt={user.name} loading="lazy" />
-      </div>
-      <div className="c-user__info">
-        <h2>{user.name}</h2>
-
-        <div className="c-user__info__actions">
-          <Button btnText="Editar" handleClick={() => {}} />
-          <Button btnText="Apagar" handleClick={() => {}} />
-        </div>
-      </div>
-    </div>
+    <UserContainer>
+      <Avatar src={user.avatar} alt={user.name} loading="lazy" />
+      <Info>
+        <Title className='nowrap'>{user.name}</Title>
+        <Actions>
+          <ActionButton btnText="Editar" handleClick={() => { }} />
+          <ActionButton btnText="Apagar" handleClick={() => { }} />
+        </Actions>
+      </Info>
+    </UserContainer>
   )
 }

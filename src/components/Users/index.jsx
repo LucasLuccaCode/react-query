@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react"
 import { api } from '../../services/api'
+import { UsersContainer } from "./styles"
 import UserCard from "./UserCard"
 
 export default function Users() {
@@ -28,10 +29,10 @@ export default function Users() {
   if (error) return <p>Erro ao fazer requisição de usuários</p>
 
   return (
-    <div className="c-users">
+    <UsersContainer>
       {users?.map(user => (
         <UserCard user={user} key={user.id} />
       ))}
-    </div>
+    </UsersContainer>
   )
 }

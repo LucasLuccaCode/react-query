@@ -119,7 +119,7 @@ button {
   border: 2px solid var(--details-color);
   color: var(--secondary-color);
   font-weight: bold;
-  font-size: .6rem;
+  font-size: .5rem;
   text-transform: uppercase;
   border-radius: .3rem;
   padding: .3rem .5rem;
