@@ -1,15 +1,14 @@
-import { ReactQueryDevtools } from "@tanstack/react-query-devtools"
 import Users from "./components/Users"
+import { AppContainer, Main } from "./styles"
 
 export default function App() {
   return (
-    <div className="App">
-      <main>
+    <AppContainer>
+      <Main>
         <h1>Usuários</h1>
 
         <Users />
-        <ReactQueryDevtools initialIsOpen={false} />
-      </main>
-    </div>
+      </Main>
+    </AppContainer>
   )
 }

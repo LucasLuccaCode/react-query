@@ -45,12 +45,6 @@ body::-webkit-scrollbar-thumb {
   }
 }
 
-/* Main */
-main {
-  flex: 1;
-  padding: 1em var(--margin-h);
-}
-
 h1 {
   font-size: 1.1rem;
   color: #efefff;
@@ -65,28 +59,6 @@ a {
   text-decoration: none;
 }
 
-.menu a {
-  position: relative;
-}
-
-.menu a::before {
-  content: "";
-  position: absolute;
-  bottom: 0;
-  left: 50%;
-  transform: translateX(-50%);
-  display: inline-block;
-  width: 0%;
-  height: 2px;
-  background: transparent;
-  transition: .2s linear;
-}
-
-.menu a.active::before {
-  width: 100%;
-  background: var(--details-color);
-}
-
 input,
 button {
   border: 0;
@@ -94,19 +66,11 @@ button {
   outline: 0;
 }
 
-.c-container {
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-  height: 100%;
-}
-
 .max-width {
   width: 450px;
   max-width: 96%;
   margin: 0 auto;
 }
-
 
 .nowrap {
   white-space: nowrap;
@@ -130,16 +94,6 @@ button {
 .btn:hover {
   background: transparent;
   color: var(--details-color);
-}
-
-.c-not_found {
-  display: flex;
-  flex-direction: column;
-  gap: .6rem;
-  align-items: center;
-  justify-content: center;
-  width: 100%;
-  height: 100%;
 }
 `
 
