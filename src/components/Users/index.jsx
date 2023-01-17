@@ -16,11 +16,13 @@ export default function Users() {
 
   if (error) return <p>Erro ao fazer requisição de usuários</p>
 
+  const sortedUsers = users?.sort((a, b) => a.name > b.name ? 1 : -1)
+
   return (
     <>
       <UsersContainer>
         {
-          users?.map(user => (
+          sortedUsers?.map(user => (
             <UserCard
               user={user}
               onClickEdit={() => setSelectedUser(user)}
