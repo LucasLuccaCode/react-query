@@ -1,10 +1,10 @@
 import styled from "styled-components"
-import Button from "../../Button"
+import Button from "../Button"
 
 export const UserContainer = styled.li`
 cursor: pointer;
 display: flex;
-padding: .5rem;
+padding: .6rem;
 gap: .6rem;
 border-radius: .3rem;
 background: var(--secondary-color);
@@ -25,6 +25,7 @@ border-radius: .2rem;
 export const Info = styled.div`
 display: flex;
 flex-direction: column;
+width: 100%;
 height: 100%;
 gap: .5rem;
 justify-content: space-between;
@@ -38,9 +39,11 @@ text-transform: capitalize;
 
 export const Actions = styled.div`
 display: flex;
-/* flex-wrap: wrap; */
+justify-content: space-between;
+width: 100%;
 gap: .5rem;
 `
 
 export const ActionButton = styled(Button)`
+opacity: .5;
 `

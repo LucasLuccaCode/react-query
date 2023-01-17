@@ -9,13 +9,8 @@ const getUsers = async () => {
   return response.data
 }
 
-const getUserById = async (userId) => {
-  const response = await instance.get(`/users/${userId}`)
-  return response.data
-}
-
-const updateUser = async (userId, data) => {
-  const response = await instance.put(`/users/${userId}`, data)
+const updateUser = async (userId, name) => {
+  const response = await instance.put(`/users/${userId}`, { name })
   return response.data
 }
 
@@ -26,7 +21,6 @@ const deleteUser = async (userId) => {
 
 export const api = {
   getUsers,
-  getUserById,
   updateUser,
   deleteUser
 }

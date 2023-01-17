@@ -1,9 +1,9 @@
 import { useMutation, useQueryClient } from '@tanstack/react-query'
-import { api } from '../../../services/api'
+import { api } from '../../services/api'
 import { Actions, Avatar, Info, UserContainer, Title, ActionButton } from './styles'
 
 
-export default function UserCard({ user }) {
+export default function UserCard({ user, onClickEdit }) {
   const queryClient = useQueryClient()
 
   const { mutate } = useMutation(
@@ -19,7 +19,7 @@ export default function UserCard({ user }) {
       <Info>
         <Title className='nowrap'>{user.name}</Title>
         <Actions>
-          <ActionButton btnText="Editar" handleClick={() => { }} />
+          <ActionButton btnText="Editar" handleClick={onClickEdit} />
           <ActionButton btnText="Apagar" handleClick={() => mutate()} />
         </Actions>
       </Info>
