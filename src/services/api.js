@@ -19,8 +19,8 @@ const updateUser = async (userId, data) => {
   return response.data
 }
 
-const deleteUser = async (userId, data) => {
-  const response = await instance.put(`/users/${userId}`, data)
+const deleteUser = async (userId) => {
+  const response = await instance.delete(`/users/${userId}`)
   return response.data
 }
 
