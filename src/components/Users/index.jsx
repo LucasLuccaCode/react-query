@@ -1,8 +1,8 @@
-import { useQuery } from "@tanstack/react-query"
 import { useMemo, useState } from "react"
+import { useQuery } from "@tanstack/react-query"
 import { api } from '../../services/api'
-import { ViewMore, UsersContainer, Message, UsersList } from "./styles"
 
+import { ViewMore, UsersContainer, Message, UsersList } from "./styles"
 import Modal from "../Modal"
 import UserCard from "../UserCard"
 import UserEdit from "../UserEdit"
@@ -13,10 +13,12 @@ export default function Users() {
   const [selectedUser, setSelectedUser] = useState(null)
   const [page, setPage] = useState(perPage)
 
-  const { data: users, isLoading, error } = useQuery(['users'], api.getUsers, {
-    keepPreviousData: true, // Mostrar os dados antigos enquanto faz a requisição
-    staleTime: 5 * 60 * 1000 // Tempo que o cache demorará para ficar obsoleto: 5 minutos em ms
-  })
+  const { data: users, isLoading, error } = useQuery( ['users'], api.getUsers,
+    {
+      keepPreviousData: true,
+      staleTime: 5 * 60 * 1000
+    }
+  )
 
   const sortedUsers = useMemo(() =>
     users?.sort((a, b) => a.name > b.name ? 1 : -1), [users])
