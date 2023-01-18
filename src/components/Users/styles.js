@@ -1,6 +1,11 @@
 import styled from "styled-components"
 
-export const UsersContainer = styled.ul`
+export const UsersContainer = styled.div`
+width: 100%;
+margin-top: 1rem;
+`
+
+export const UsersList = styled.ul`
 display: grid;
 grid-template-columns: repeat(auto-fill, minmax(250px, auto));
 gap: .7rem;

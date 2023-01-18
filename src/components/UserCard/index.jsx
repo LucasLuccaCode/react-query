@@ -1,7 +1,7 @@
 import { useMutation, useQueryClient } from '@tanstack/react-query'
 import { api } from '../../services/api'
-import { Actions, Avatar, Info, UserContainer, Title, ActionButton } from './styles'
 
+import { Actions, Avatar, Info, UserContainer, Title, ActionButton } from './styles'
 
 export default function UserCard({ user, onClickEdit }) {
   const queryClient = useQueryClient()
@@ -13,6 +13,8 @@ export default function UserCard({ user, onClickEdit }) {
     }
   )
 
+  const textDeletingBtn = isLoading ? "Deletando..." : "Deletar"
+
   return (
     <UserContainer>
       <Avatar src={user.avatar} alt={user.name} loading="lazy" />
@@ -20,7 +22,7 @@ export default function UserCard({ user, onClickEdit }) {
         <Title className='nowrap'>{user.name}</Title>
         <Actions>
           <ActionButton btnText="Editar" handleClick={onClickEdit} />
-          <ActionButton btnText={isLoading ? "Apagando..." : "Apagar"} handleClick={() => mutate()} />
+          <ActionButton btnText={textDeletingBtn} handleClick={() => mutate()} />
         </Actions>
       </Info>
     </UserContainer>

@@ -1,6 +1,7 @@
-import { useMutation, useQueryClient } from '@tanstack/react-query'
 import { useState } from 'react'
+import { useMutation, useQueryClient } from '@tanstack/react-query'
 import { api } from '../../services/api'
+
 import { Form, Input } from './styles.js'
 import Button from '../Button'
 
@@ -23,6 +24,8 @@ export default function UserEdit({ user, closeModal }) {
     mutate()
   }
 
+  const text = isLoading ? 'Atualizando...' : 'Atualizar'
+
   return (
     <>
       <h1>Editar nome do usuário:</h1>
@@ -32,9 +35,9 @@ export default function UserEdit({ user, closeModal }) {
           type="text"
           value={name}
           autoFocus
-          onChange={(e) => setName(e.target.value)}
+          onChange={e => setName(e.target.value)}
         />
-        <Button btnText={isLoading ? 'Atualizando' : 'Atualizar'} type="submit" />
+        <Button btnText={text} type="submit" />
       </Form>
     </>
   )

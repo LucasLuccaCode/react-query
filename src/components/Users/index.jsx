@@ -1,7 +1,7 @@
 import { useQuery } from "@tanstack/react-query"
 import { useMemo, useState } from "react"
 import { api } from '../../services/api'
-import { ViewMore, UsersContainer, Message } from "./styles"
+import { ViewMore, UsersContainer, Message, UsersList } from "./styles"
 
 import Modal from "../Modal"
 import UserCard from "../UserCard"
@@ -18,23 +18,28 @@ export default function Users() {
     staleTime: 5 * 60 * 1000 // Tempo que o cache demorará para ficar obsoleto: 5 minutos em ms
   })
 
-  const callbackSort = useMemo(() => {
-    return (a, b) => a.name > b.name ? 1 : -1
-  }, [users])
+  const sortedUsers = useMemo(() =>
+    users?.sort((a, b) => a.name > b.name ? 1 : -1), [users])
 
-  const sortedUsers = users?.sort(callbackSort)
+  const currentUsers = useMemo(() => sortedUsers?.slice(0, page), [sortedUsers, page])
 
-  const currentUsers = sortedUsers?.slice(0, page)
+  const showViewMore = currentUsers?.length < users?.length
 
-  if (isLoading) return <Loading />
+  if (isLoading) {
+    return <Loading />
+  }
 
-  if (error) return <Message>Erro ao fazer requisição de usuários</Message>
+  if (error) {
+    return <Message>Erro ao fazer requisição de usuários</Message>
+  }
 
-  if (!currentUsers.length) return <Message>Nenhum usuário encontrado na api...</Message>
+  if (!currentUsers.length) {
+    return <Message>Nenhum usuário encontrado na api...</Message>
+  }
 
   return (
-    <>
-      <UsersContainer>
+    <UsersContainer>
+      <UsersList>
         {
           currentUsers?.map(user => (
             <UserCard
@@ -44,10 +49,10 @@ export default function Users() {
             />
           ))
         }
-      </UsersContainer>
+      </UsersList>
 
       {
-        currentUsers.length < users.length && (
+        showViewMore && (
           <ViewMore className="btn" onClick={() => setPage(page + perPage)}>
             Ver mais
           </ViewMore>
@@ -64,6 +69,6 @@ export default function Users() {
           </Modal>
         )
       }
-    </>
+    </UsersContainer>
   )
 }
