@@ -1,7 +1,7 @@
 
 ![Preview demo](https://github.com/LucasLuccaCode/react-query/blob/main/docs/img/rql.svg)
 
-Este projeto tem como objetivo usar o react query para gerenciar dados e requisições a partir de uma api [mockapi.io](https://mockapi.io/) com dados de usuários mocados.
+Este projeto tem como objetivo usar a biblioteca React Query para lidar com estados de requisições, erros, cache, ao consumir a [mockapi.io](https://mockapi.io/) com dados de usuários mocados.
 
 ## Como utilizar
 
